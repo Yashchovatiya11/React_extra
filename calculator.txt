@@ -1,0 +1,200 @@
+import React, { useState } from "react";
+import { Alert, Button, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+
+function Calculator() {
+  const [num, getnum] = useState('');
+  const [output, getoutput] = useState('');
+  
+  function calculator(no) {
+    getnum(num + no);
+    console.log("vlaue = "+output)
+  }
+  
+  function clearall() {
+    // Alert.alert("heooo", "khgsd")
+    getnum('')
+  }
+  
+  return (
+    <View style={style.main}>
+      <View style={style.perant_textarea}>
+        <Text style={style.calcu}>Calculator</Text>
+        <TextInput style={style.output} onChangeText={() => { getoutput(num) }}>{num}</TextInput>
+      </View>
+
+      <View style={style.perant_button}>
+        <View style={style.child_button}><Pressable onPress={clearall} style={style.button}>
+          <Text style={style.control_txt1}>AC</Text>
+        </Pressable></View>
+        <View style={style.child_button}><Pressable  style={style.button}>
+          <Text style={style.control_txt1}>+/_</Text>
+        </Pressable></View>
+        <View style={style.child_button}><Pressable  style={style.button}>
+          <Text style={style.control_txt1}>%</Text>
+        </Pressable></View>
+        <View style={style.child_button}><Pressable  style={style.button}>
+          <Text style={style.control_txt}>÷</Text>
+        </Pressable></View>
+        <View style={style.child_button}><Pressable onPress={() => { calculator(7) }} style={style.button}>
+          <Text style={style.txt}>7</Text>
+        </Pressable></View>
+        <View style={style.child_button}><Pressable onPress={() => { calculator(8) }} style={style.button}>
+          <Text style={style.txt}>8</Text>
+        </Pressable></View>
+        <View style={style.child_button}><Pressable onPress={() => { calculator(9) }} style={style.button}>
+          <Text style={style.txt}>9</Text>
+        </Pressable></View>
+        <View style={style.child_button}><Pressable  style={style.button}>
+          <Text style={style.control_txt}>×</Text>
+        </Pressable></View>
+        <View style={style.child_button}><Pressable onPress={() => { calculator(4) }} style={style.button}>
+          <Text style={style.txt}>4</Text>
+        </Pressable></View>
+        <View style={style.child_button}><Pressable onPress={() => { calculator(5) }} style={style.button}>
+          <Text style={style.txt}>5</Text>
+        </Pressable></View>
+        <View style={style.child_button}><Pressable onPress={() => { calculator(6) }} style={style.button}>
+          <Text style={style.txt}>6</Text>
+        </Pressable></View>
+        <View style={style.child_button}><Pressable  style={style.button}>
+          <Text style={style.control_txt}>-</Text>
+        </Pressable></View>
+        <View style={style.child_button}><Pressable onPress={() => { calculator(1) }} style={style.button}>
+          <Text style={style.txt}>1</Text>
+        </Pressable></View>
+        <View style={style.child_button}><Pressable onPress={() => { calculator(2) }} style={style.button}>
+          <Text style={style.txt}>2</Text>
+        </Pressable></View>
+        <View style={style.child_button}><Pressable onPress={() => { calculator(3) }} style={style.button}>
+          <Text style={style.txt}>3</Text>
+        </Pressable></View>
+        <View style={style.child_button}><Pressable  style={style.button}>
+          <Text style={style.control_txt}>+</Text>
+        </Pressable></View>
+        <View style={style.child__button}><Pressable onPress={() => { calculator(0) }} style={style.button_}>
+          <Text style={style.txtzero}>0</Text>
+        </Pressable></View>
+        <View style={style.child_button}><Pressable  style={style.button}>
+          <Text style={style.txt}>.</Text>
+        </Pressable></View>
+        <View style={style.child_button}><Pressable  style={style.button}>
+          <Text style={style.control_txt}>=</Text>
+        </Pressable></View>
+
+      </View>
+
+    </View>
+
+  )
+}
+export default Calculator;
+
+const style = StyleSheet.create({
+
+  main: {
+    height: "100%",
+    backgroundColor: "black",
+  },
+
+  perant_textarea: {
+    height: "37%",
+    backgroundColor: "black",
+  },
+  calcu: {
+    height: "20%",
+    fontSize: 35,
+    fontFamily: 'calibri',
+    fontWeight: "bold",
+    textAlignVertical: "center",
+    color: "white",
+  },
+  output: {
+    height: "80%",
+    fontSize: 50,
+    fontWeight: "bold",
+    color: "white",
+    padding: 15,
+    letterSpacing: 3,
+    textAlign: "right",
+    textAlignVertical: "bottom",
+  },
+
+
+  perant_button: {
+    width: "100%",
+    height: "63%",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-evenly",
+    alignContent: "space-around",
+    columnGap: 1,
+    backgroundColor: "black"
+  },
+
+  child_button: {
+    width: "20.8%",
+    height: "15.9%",
+    borderRadius: 50,
+    backgroundColor: "blue"
+  },
+
+  child__button: { width: "45%", height: "15%", borderRadius: 50 },
+  button_: { width: "100%", height: "100%", backgroundColor: "white", borderRadius: 50 },
+
+  button: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "white",
+    borderRadius: 50,
+
+  },
+
+  control_txt1: {
+    fontSize: 40,
+    fontWeight: "bold",
+    height: "100%",
+    width: "100%",
+    textAlign: "center",
+    textAlignVertical: "center",
+    color: "black",
+    backgroundColor: "rgb(169,169,169)",
+    borderRadius: 50,
+  },
+  control_txt: {
+    fontSize: 50,
+    fontWeight: "bold",
+    textAlignVertical: "center",
+    height: "100%",
+    width: "100%",
+    textAlign: "center",
+    color: "white",
+    backgroundColor: "orange",
+    borderRadius: 50,
+  },
+
+  txt: {
+    fontSize: 40,
+    textAlignVertical: "center",
+    fontWeight: "bold",
+    height: "100%",
+    width: "100%",
+    textAlign: "center",
+    color: "white",
+    backgroundColor: "rgba(0,0,0,0.8)",
+  },
+
+  txtzero: {
+    fontSize: 40,
+    textAlignVertical: "center",
+    fontWeight: "bold",
+    height: "100%",
+    width: "100%",
+    textAlign: "center",
+    color: "white",
+    backgroundColor: "rgba(0,0,0,0.8)",
+  }
+
+
+
+
+})
